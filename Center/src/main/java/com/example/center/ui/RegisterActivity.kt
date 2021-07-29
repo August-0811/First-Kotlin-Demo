@@ -1,18 +1,18 @@
 package com.example.center.ui
 
 import android.os.Bundle
-import com.example.center.MainActivity
+import com.example.center.LoignActivity
 import com.example.center.R
 import com.example.center.contract.UserCenterContract
 import com.example.center.presenter.UserCenterPresenterImpl
-import com.example.mvpcore.view.BaseMVPActivity
+import com.example.mvpcore. view.BaseMVPActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContract.UserCenterView {
 
     override fun <T> registerSuccess(data: T) {
         showMsg("登录成功")
-        jumpActivity(MainActivity::class.java)
+        jumpActivity(LoignActivity::class.java)
 
     }
 
