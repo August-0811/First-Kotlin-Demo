@@ -1,0 +1,2 @@
+include ':app', ':Net', ':Common', ':MVPCore', ':Resource', ':Center'
+rootProject.name='KotlinDemo'
