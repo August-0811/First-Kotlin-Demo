@@ -1,10 +1,14 @@
 package com.example.center.contract
 
 import com.example.center.callback.RegisterCallBack
+import com.example.center.model.protocol.rep.UserEntitiy
+import com.example.center.model.protocol.resp.RespUserEntity
 import com.example.mvpcore.BasePresenter
 import com.example.mvpcore.BaseRepository
 import com.example.mvpcore.IModel
 import com.example.mvpcore.IVew
+import com.example.net.protocol.resp.BaseRespEntity
+import io.reactivex.Observable
 
 /**
  * @Author : August
@@ -13,11 +17,11 @@ import com.example.mvpcore.IVew
 interface UserCenterContract {
 
     interface UserCenterModel: IModel{
-        fun register(phoneNumber:String,pwd:String,callback:RegisterCallBack)
+        fun register(entitiy: UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
     }
 
     abstract class UserCenterRepository:BaseRepository<UserCenterModel>(){
-       abstract fun register(phoneNumber:String,pwd:String,callback:RegisterCallBack)
+       abstract fun register(entitiy: UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
     }
 
     interface UserCenterView:IVew{
@@ -27,7 +31,7 @@ interface UserCenterContract {
     }
 
     abstract class UserCenterPresenter(view: UserCenterView):BasePresenter<UserCenterRepository,UserCenterView>(view){
-        abstract fun register(phoneNumber: String,pwd: String)
+        abstract fun register(entitiy: UserEntitiy)
     }
 
 }

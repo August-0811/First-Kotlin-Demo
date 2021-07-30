@@ -1,25 +1,15 @@
 package com.example.center.ui
 
 import android.os.Bundle
-import com.example.center.LoignActivity
+import android.util.Log
 import com.example.center.R
 import com.example.center.contract.UserCenterContract
+import com.example.center.model.protocol.rep.UserEntitiy
 import com.example.center.presenter.UserCenterPresenterImpl
 import com.example.mvpcore. view.BaseMVPActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContract.UserCenterView {
-
-    override fun <T> registerSuccess(data: T) {
-        showMsg("登录成功")
-        jumpActivity(LoignActivity::class.java)
-
-    }
-
-    override fun registerFailed(throwable: Throwable) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
 
     override fun createPresenter(): UserCenterPresenterImpl {
         return UserCenterPresenterImpl(this)
@@ -34,7 +24,8 @@ class RegisterActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterCo
             val phoneNumber:String = et_register_phonenumber.text.trim().toString()
             val pwd:String = et_register_pwd.text.trim().toString()
 
-            mPresenter.register(phoneNumber,pwd)
+            mPresenter.register(UserEntitiy("2021-01-01",0,pwd,"1",phoneNumber))
+
         }
     }
 
@@ -52,6 +43,16 @@ class RegisterActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterCo
      */
     override fun releaseResurce() {
 
+    }
+
+    override fun <T> registerSuccess(data: T) {
+        showMsg("注册成功")
+        jumpActivity(LoignActivity::class.java)
+        Log.i("123","registerSuccss:${data.toString()}")
+    }
+
+    override fun registerFailed(throwable: Throwable) {
+        Log.i("123","registerthrowable:${throwable.message}")
     }
 
 

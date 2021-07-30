@@ -1,5 +1,10 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def libs=rootProject.ext.dependencies
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -31,4 +36,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    api libs.rxjava
+    api libs.rxandroid
+    api libs.autodispose
+    api libs.autodisposearchcomponents
+    api libs.retrofit
 }

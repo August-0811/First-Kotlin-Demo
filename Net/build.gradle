@@ -1,5 +1,12 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def libs=rootProject.ext.dependencies
+def versions=rootProject.ext.dependenciesVersion
+def urls=rootProject.ext.urls
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -17,8 +24,13 @@ android {
 
     buildTypes {
         release {
+            buildConfigField("String","BASEURL","\""+urls.online+"\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            buildConfigField("String","BASEURL","\""+urls.offline+"\"")
+
         }
     }
 
@@ -31,4 +43,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation libs.retrofitgson
+    implementation libs.retrofitrxjava
+    implementation libs.okhttplog
+    implementation project(path: ':Common')
 }
