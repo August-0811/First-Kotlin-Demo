@@ -16,4 +16,10 @@ interface UserCenterApi {
 
     @POST("api/User/register")
     fun register(@Body params:UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
+
+
+    @POST("api/User/login")
+    fun login(@Body params:UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
+
+
 }

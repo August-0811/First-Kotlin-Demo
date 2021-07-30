@@ -13,6 +13,7 @@ import io.reactivex.Observable
  * @Time : On 2021/7/29 14:04
  */
 class UserCenterRepositoryImpl : UserCenterContract.UserCenterRepository() {
+
     override fun register(entitiy: UserEntitiy): Observable<BaseRespEntity<RespUserEntity>> {
         return mModel.register(entitiy)
     }

@@ -6,37 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".ui.RegisterActivity">
+    tools:context=".ui.LoignActivity">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_register_phonenumber"
+        android:id="@+id/et_login_phonenumber"
         >
     </EditText>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_register_pwd"
+        android:id="@+id/et_login_pwd"
         android:inputType="textPassword"
         >
     </EditText>
 
     <Button
-        android:text="注册"
-        android:id="@+id/btn_register"
+        android:text="登录"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >
     </Button>
 
     <TextView
-        android:id="@+id/go_login"
+        android:text="注册"
+        android:id="@+id/go_register"
+        android:textColor="#3F51B5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#3F51B5"
-        android:text="登录"
         >
     </TextView>
 

@@ -18,4 +18,8 @@ class UserCenterModelImpl:UserCenterContract.UserCenterModel {
         val service = RetrofitFactory.retrofitInstance.create(UserCenterApi::class.java)
         return service.register(entitiy)
     }
+
+
+
+
 }

@@ -27,6 +27,11 @@ class RegisterActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterCo
             mPresenter.register(UserEntitiy("2021-01-01",0,pwd,"1",phoneNumber))
 
         }
+
+        go_login.setOnClickListener {
+            jumpActivity(LoignActivity::class.java)
+        }
+
     }
 
     override fun initData(savedInstanceState:Bundle?) {
@@ -52,6 +57,7 @@ class RegisterActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterCo
     }
 
     override fun registerFailed(throwable: Throwable) {
+        showMsg("注册失败")
         Log.i("123","registerthrowable:${throwable.message}")
     }
 

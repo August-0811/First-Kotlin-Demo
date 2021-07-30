@@ -1,28 +1,27 @@
 package com.example.center.presenter
 
-import android.util.Log
 import com.example.center.contract.UserCenterContract
+import com.example.center.contract.UserLoginContract
 import com.example.center.model.protocol.rep.UserEntitiy
 import com.example.center.model.protocol.resp.RespUserEntity
 import com.example.center.repoitory.UserCenterRepositoryImpl
+import com.example.center.repoitory.UserLoginRepositoryImpl
 import com.example.net.protocol.resp.BaseRespEntity
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-
 /**
  * @Author : August
- * @Time : On 2021/7/29 14:06
+ * @Time : On 2021/7/30 13:47
  */
-class UserCenterPresenterImpl(_view:UserCenterContract.UserCenterView) : UserCenterContract.UserCenterPresenter(_view){
-
-    override fun register(entitiy: UserEntitiy) {
-        mRepository.register(entitiy)
+class UserLoginPresenterImpl(_view: UserLoginContract.UserCenterView) : UserLoginContract.UserLoginPresenter(_view) {
+    override fun login(entitiy: UserEntitiy) {
+        mRepository.login(entitiy)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object :Observer<BaseRespEntity<RespUserEntity>>{
+            .subscribe(object : Observer<BaseRespEntity<RespUserEntity>>{
                 override fun onComplete() {
 
                 }
@@ -32,21 +31,17 @@ class UserCenterPresenterImpl(_view:UserCenterContract.UserCenterView) : UserCen
                 }
 
                 override fun onNext(t: BaseRespEntity<RespUserEntity>) {
-                    mView.get()!!.registerSuccess(t)
+                    mView.get()!!.loginSuccess(t)
                 }
 
                 override fun onError(e: Throwable) {
-                    mView.get()!!.registerFailed(e)
+                    mView.get()!!.loginFailed(e)
                 }
 
             })
-
     }
 
-
-    override fun createRepository(): UserCenterContract.UserCenterRepository {
-        return UserCenterRepositoryImpl()
+    override fun createRepository(): UserLoginContract.UserCenterRepository {
+        return UserLoginRepositoryImpl()
     }
-
-
 }
