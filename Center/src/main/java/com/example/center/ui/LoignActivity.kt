@@ -12,6 +12,10 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class LoignActivity : BaseMVPActivity<UserLoginPresenterImpl>(),UserLoginContract.UserCenterView {
 
+
+    /**
+     * ??????????????
+     */
     override fun createPresenter(): UserLoginPresenterImpl {
        return UserLoginPresenterImpl(this)
     }
@@ -42,7 +46,7 @@ class LoignActivity : BaseMVPActivity<UserLoginPresenterImpl>(),UserLoginContrac
     }
 
     override fun releaseResurce() {
-        TODO("Not yet implemented")
+
     }
 
     override fun <T> loginSuccess(data: T) {

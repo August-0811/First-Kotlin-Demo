@@ -1,10 +1,13 @@
 package com.example.center.model.api
 
+import com.example.center.model.protocol.rep.ClassfigEntity
 import com.example.center.model.protocol.rep.UserEntitiy
+import com.example.center.model.protocol.resp.RespClassfigEntity
 import com.example.center.model.protocol.resp.RespUserEntity
 import com.example.net.protocol.resp.BaseRespEntity
 import io.reactivex.Observable
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 /**
@@ -21,5 +24,7 @@ interface UserCenterApi {
     @POST("api/User/login")
     fun login(@Body params:UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
 
+    @GET("api/GoodsType/getRecommendTypes")
+    fun calssfig() : Observable<RespClassfigEntity>
 
 }

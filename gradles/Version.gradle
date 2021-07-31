@@ -34,6 +34,9 @@ ext{
             fastjsonAndroid: "1.1.70.android",
             fastjson: "1.2.55",
 
-            greenDao: "3.2.2"
+            greenDao: "3.2.2",
+            tab:"2.0.2@aar",
+            rec:"29.0.0",
+            cym:"2.9.22",
     ]
 }

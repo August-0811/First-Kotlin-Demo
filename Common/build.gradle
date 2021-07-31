@@ -42,4 +42,7 @@ dependencies {
     api libs.autodispose
     api libs.autodisposearchcomponents
     api libs.retrofit
+    api libs.tab
+    api libs.rec
+    api libs.cym
 }

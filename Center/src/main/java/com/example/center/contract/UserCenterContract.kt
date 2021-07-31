@@ -20,9 +20,6 @@ interface UserCenterContract {
         fun register(entitiy: UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
     }
 
-    abstract class UserCenterRepository:BaseRepository<UserCenterModel>(){
-       abstract fun register(entitiy: UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
-    }
 
     interface UserCenterView:IVew{
         fun <T> registerSuccess(data:T)
@@ -30,6 +27,17 @@ interface UserCenterContract {
         fun registerFailed(throwable: Throwable)
     }
 
+    /**
+     * ??????
+     */
+    abstract class UserCenterRepository:BaseRepository<UserCenterModel>(){
+       abstract fun register(entitiy: UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
+    }
+
+
+    /**
+     * ??????????
+     */
     abstract class UserCenterPresenter(view: UserCenterView):BasePresenter<UserCenterRepository,UserCenterView>(view){
         abstract fun register(entitiy: UserEntitiy)
     }

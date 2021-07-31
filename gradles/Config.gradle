@@ -23,7 +23,10 @@ ext{
             fastjsonAndroid: "com.alibaba:fastjson:$version.fastjsonAndroid",
             fastjson:"com.alibaba:fastjson:$version.fastjson",
 
-            greenDao:"org.greenrobot:greendao:$version.greenDao"
+            greenDao:"org.greenrobot:greendao:$version.greenDao",
+            tab: "com.flyco.tablayout:FlycoTabLayout_Lib:$version.tab",
+            rec: "com.android.support:recyclerview-v7:$version.rec",
+            cym: "com.github.CymChad:BaseRecyclerViewAdapterHelper:$version.cym"//万能适配器
     ]
 
     urls=[
