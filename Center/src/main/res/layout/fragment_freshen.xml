@@ -149,7 +149,7 @@
 
 
            <LinearLayout
-               android:background="#505050"
+               android:background="#FFFFFF"
                android:layout_width="match_parent"
                android:layout_height="930dp"
                android:orientation="vertical"

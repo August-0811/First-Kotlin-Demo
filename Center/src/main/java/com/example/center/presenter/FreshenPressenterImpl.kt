@@ -4,7 +4,9 @@ import com.example.center.contract.FreshenContract
 import com.example.center.model.protocol.rep.ClassfigEntity
 import com.example.center.model.protocol.resp.RespClassfigEntity
 import com.example.center.repoitory.FreshenRepositoryImpl
+import com.example.center.util.GoodsListEntity
 import com.example.net.protocol.resp.BaseRespEntity
+import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -38,6 +40,28 @@ class FreshenPressenterImpl (_view:FreshenContract.GoodsView) : FreshenContract.
                 }
 
 
+
+            })
+    }
+
+    override fun goodslist() {
+        mRepository.goodslist()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : Observer<GoodsListEntity>{
+                override fun onComplete() {
+
+                }
+
+                override fun onSubscribe(d: Disposable) {
+                }
+
+                override fun onNext(t: GoodsListEntity) {
+                    mView.get()!!.classlistSuccess(t)
+                }
+
+                override fun onError(e: Throwable) {
+                    mView.get()!!.classlistFaild(e)                }
 
             })
     }

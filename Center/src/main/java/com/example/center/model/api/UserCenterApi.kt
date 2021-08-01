@@ -4,6 +4,7 @@ import com.example.center.model.protocol.rep.ClassfigEntity
 import com.example.center.model.protocol.rep.UserEntitiy
 import com.example.center.model.protocol.resp.RespClassfigEntity
 import com.example.center.model.protocol.resp.RespUserEntity
+import com.example.center.util.GoodsListEntity
 import com.example.net.protocol.resp.BaseRespEntity
 import io.reactivex.Observable
 import retrofit2.http.Body
@@ -27,4 +28,7 @@ interface UserCenterApi {
     @GET("api/GoodsType/getRecommendTypes")
     fun calssfig() : Observable<RespClassfigEntity>
 
+
+    @GET("api/Goods/getRecommendGoods?page=1&pagesize=50")
+    fun gooslist() : Observable<GoodsListEntity>
 }

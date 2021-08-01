@@ -4,24 +4,26 @@ package com.example.center.firstfragment
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
-
 import com.example.center.R
 import com.example.center.contract.FreshenContract
 import com.example.center.model.protocol.resp.RespClassfigEntity
 import com.example.center.presenter.FreshenPressenterImpl
 import com.example.center.util.ClassfigAda
+import com.example.center.util.GoodsListAda
+import com.example.center.util.GoodsListEntity
 import com.example.center.util.TabUtil
 import com.example.mvpcore.view.BaseMVPFragment
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.youth.banner.BannerConfig
 import com.youth.banner.loader.ImageLoader
 import kotlinx.android.synthetic.main.fragment_freshen.*
-import java.util.ArrayList
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -43,6 +45,10 @@ class FreshenFragment : BaseMVPFragment<FreshenPressenterImpl>(),FreshenContract
 
         //加载分类
         fPersenter.classfig()
+        //加载商品列表
+        fPersenter.goodslist()
+
+
         var tabEntitys:ArrayList<CustomTabEntity> = arrayListOf()
 
         tabEntitys.add(TabUtil("精选",0,0))
@@ -85,6 +91,10 @@ class FreshenFragment : BaseMVPFragment<FreshenPressenterImpl>(),FreshenContract
         return FreshenPressenterImpl(this)
     }
 
+    /**
+     * 商品分类请求
+     */
+
     override fun <T> classfigSuccess(data: T) {
 //        showMsg("成功")
         var respgood: RespClassfigEntity = data as RespClassfigEntity
@@ -92,16 +102,29 @@ class FreshenFragment : BaseMVPFragment<FreshenPressenterImpl>(),FreshenContract
 
         classfig_rec.adapter = ClassfigAda(R.layout.classfig_layout,data as MutableList<RespClassfigEntity.Data>?)
         classfig_rec.layoutManager = GridLayoutManager(context,2,RecyclerView.HORIZONTAL,false)
-
-
         Log.i("Success","registerthrowable:${data.toString()}")
-
-
     }
 
     override fun classfigFaild(throwable: Throwable) {
         showMsg("失败")
         Log.i("Faild","registerthrowable:${throwable.message}")
+    }
+
+    /**
+     * 商品列表请求
+     */
+
+    override fun <T> classlistSuccess(data: T) {
+        Log.i("classlistSuccess","registerthrowable:${data.toString()}")
+        val goodsListEntity = data as GoodsListEntity
+        val data : List<GoodsListEntity.Data> = goodsListEntity.data
+
+        goods_list.adapter = GoodsListAda(R.layout.goodslist_layout,data as MutableList<GoodsListEntity.Data>)
+        goods_list.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+    }
+
+    override fun classlistFaild(throwable: Throwable) {
+        Log.i("classlistFaild","registerthrowable:${throwable.message}")
     }
 
 }
