@@ -10,7 +10,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.ashokvarma.bottomnavigation.TextBadgeItem
 import com.example.center.R
 import com.example.center.firstfragment.*
-import com.example.center.util.FragAda
+import com.example.center.util.Ada.FragAda
 import com.flyco.tablayout.listener.CustomTabEntity
 import kotlinx.android.synthetic.main.activity_goods.*
 
@@ -29,7 +29,10 @@ class GoodsActivity : AppCompatActivity() {
         fragmentList.add(ShoppingCatFragment())
         fragmentList.add(MyFragment())
 
-        goods_vp.adapter = FragAda(supportFragmentManager,fragmentList)
+        goods_vp.adapter = FragAda(
+            supportFragmentManager,
+            fragmentList
+        )
 
 
         good_bar.setTabSelectedListener(object : BottomNavigationBar.OnTabSelectedListener{

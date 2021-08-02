@@ -95,8 +95,10 @@
                    </ImageView>
 
                    <EditText
+                       android:id="@+id/goods_find"
                        android:drawableStart="@drawable/ss"
                        android:hint="意大利炮"
+                       android:focusableInTouchMode="false"
                        android:layout_width="380dp"
                        android:layout_centerHorizontal="true"
                        android:background="@drawable/find_style"

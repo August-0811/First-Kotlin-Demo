@@ -2,11 +2,9 @@ package com.example.center.model.service
 
 import com.example.center.contract.FreshenContract
 import com.example.center.model.api.UserCenterApi
-import com.example.center.model.protocol.rep.ClassfigEntity
 import com.example.center.model.protocol.resp.RespClassfigEntity
-import com.example.center.util.GoodsListEntity
+import com.example.center.util.Bean.GoodsListEntity
 import com.example.net.RetrofitFactory
-import com.example.net.protocol.resp.BaseRespEntity
 import io.reactivex.Observable
 
 /**

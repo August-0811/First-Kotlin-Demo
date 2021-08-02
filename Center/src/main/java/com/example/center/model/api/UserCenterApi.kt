@@ -1,15 +1,13 @@
 package com.example.center.model.api
 
-import com.example.center.model.protocol.rep.ClassfigEntity
 import com.example.center.model.protocol.rep.UserEntitiy
 import com.example.center.model.protocol.resp.RespClassfigEntity
 import com.example.center.model.protocol.resp.RespUserEntity
-import com.example.center.util.GoodsListEntity
+import com.example.center.util.Bean.FindEntity
+import com.example.center.util.Bean.GoodsListEntity
 import com.example.net.protocol.resp.BaseRespEntity
 import io.reactivex.Observable
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * @Author : August
@@ -29,6 +27,10 @@ interface UserCenterApi {
     fun calssfig() : Observable<RespClassfigEntity>
 
 
-    @GET("api/Goods/getRecommendGoods?page=1&pagesize=50")
+    @GET("api/Goods/getRecommendGoods?page=1&pagesize=30")
     fun gooslist() : Observable<GoodsListEntity>
+
+    @GET("api/Goods/getGoods?&pageno=1&pagesize=10")
+    fun find_goods(@Query("keyword") keyword:String,@Query("type") type:String) : Observable<FindEntity>
+
 }

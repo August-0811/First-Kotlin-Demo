@@ -1,4 +1,4 @@
-package com.example.center.util
+package com.example.center.util.Ada
 
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter

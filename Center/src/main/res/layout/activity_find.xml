@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.FindActivity">
+
+   <EditText
+       android:id="@+id/goodsfind"
+       android:layout_margin="@dimen/dp_10"
+       android:drawableStart="@drawable/ss"
+       android:drawableEnd="@drawable/xiangji2"
+       android:background="@drawable/findgoods_style"
+       android:layout_width="320dp"
+       android:layout_height="35dp"
+       />
+
+    <TextView
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="搜索"
+        android:id="@+id/find"
+        android:textSize="18dp"
+        android:layout_toRightOf="@id/goodsfind"
+        android:layout_width="45dp"
+        android:textColor="#80101010"
+        android:layout_height="35dp"/>
+
+        <RelativeLayout
+            android:id="@+id/searchrecords"
+            android:layout_below="@id/goodsfind"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical"
+            >
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/goodsfind"
+            android:id="@+id/find_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+</RelativeLayout>

@@ -1,10 +1,10 @@
-package com.example.center.util
+package com.example.center.util.Ada
 
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.example.center.R
-import kotlinx.android.synthetic.main.goodslist_layout.view.*
+import com.example.center.util.Bean.GoodsListEntity
 
 /**
  * @Author : August

@@ -1,4 +1,4 @@
-package com.example.center.util
+package com.example.center.util.Bean
 
 /**
  * @Author : August

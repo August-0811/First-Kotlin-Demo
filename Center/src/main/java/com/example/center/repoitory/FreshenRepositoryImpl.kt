@@ -1,11 +1,9 @@
 package com.example.center.repoitory
 
 import com.example.center.contract.FreshenContract
-import com.example.center.model.protocol.rep.ClassfigEntity
 import com.example.center.model.protocol.resp.RespClassfigEntity
 import com.example.center.model.service.FreshenModelImpl
-import com.example.center.util.GoodsListEntity
-import com.example.net.protocol.resp.BaseRespEntity
+import com.example.center.util.Bean.GoodsListEntity
 import io.reactivex.Observable
 
 /**

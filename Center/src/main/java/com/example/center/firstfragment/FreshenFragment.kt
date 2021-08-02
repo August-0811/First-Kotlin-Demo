@@ -2,6 +2,7 @@ package com.example.center.firstfragment
 
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -14,10 +15,11 @@ import com.example.center.R
 import com.example.center.contract.FreshenContract
 import com.example.center.model.protocol.resp.RespClassfigEntity
 import com.example.center.presenter.FreshenPressenterImpl
-import com.example.center.util.ClassfigAda
-import com.example.center.util.GoodsListAda
-import com.example.center.util.GoodsListEntity
-import com.example.center.util.TabUtil
+import com.example.center.ui.FindActivity
+import com.example.center.util.Ada.ClassfigAda
+import com.example.center.util.Ada.GoodsListAda
+import com.example.center.util.Bean.GoodsListEntity
+import com.example.center.util.Ada.TabUtil
 import com.example.mvpcore.view.BaseMVPFragment
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.youth.banner.BannerConfig
@@ -51,14 +53,29 @@ class FreshenFragment : BaseMVPFragment<FreshenPressenterImpl>(),FreshenContract
 
         var tabEntitys:ArrayList<CustomTabEntity> = arrayListOf()
 
-        tabEntitys.add(TabUtil("精选",0,0))
-        tabEntitys.add(TabUtil("十一",0,0))
-        tabEntitys.add(TabUtil("电器",0,0))
-        tabEntitys.add(TabUtil("生活",0,0))
+        tabEntitys.add(TabUtil("精选", 0, 0))
+        tabEntitys.add(TabUtil("十一", 0, 0))
+        tabEntitys.add(TabUtil("电器", 0, 0))
+        tabEntitys.add(TabUtil("生活", 0, 0))
 
 
 
         goods_tab.setTabData(tabEntitys)
+
+
+        /**
+         * 添加搜索框跳转
+         */
+        goods_find.setOnClickListener {
+            // MainActivity
+            // A A从右边移动到最左边消失
+            // B B从右边出现移动到最左边
+            startActivity(Intent(activity,FindActivity::class.java))
+            // 添加切换的动画
+            activity!!.overridePendingTransition(R.anim.left_enter_anim,R.anim.left_exit_anim)
+
+        }
+
 
     }
 
@@ -100,7 +117,10 @@ class FreshenFragment : BaseMVPFragment<FreshenPressenterImpl>(),FreshenContract
         var respgood: RespClassfigEntity = data as RespClassfigEntity
         var  data : List<RespClassfigEntity.Data>? = respgood.data
 
-        classfig_rec.adapter = ClassfigAda(R.layout.classfig_layout,data as MutableList<RespClassfigEntity.Data>?)
+        classfig_rec.adapter = ClassfigAda(
+            R.layout.classfig_layout,
+            data as MutableList<RespClassfigEntity.Data>?
+        )
         classfig_rec.layoutManager = GridLayoutManager(context,2,RecyclerView.HORIZONTAL,false)
         Log.i("Success","registerthrowable:${data.toString()}")
     }
@@ -119,7 +139,10 @@ class FreshenFragment : BaseMVPFragment<FreshenPressenterImpl>(),FreshenContract
         val goodsListEntity = data as GoodsListEntity
         val data : List<GoodsListEntity.Data> = goodsListEntity.data
 
-        goods_list.adapter = GoodsListAda(R.layout.goodslist_layout,data as MutableList<GoodsListEntity.Data>)
+        goods_list.adapter = GoodsListAda(
+            R.layout.goodslist_layout,
+            data as MutableList<GoodsListEntity.Data>
+        )
         goods_list.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }
 

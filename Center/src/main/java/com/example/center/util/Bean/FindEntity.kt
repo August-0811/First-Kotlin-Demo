@@ -1,10 +1,10 @@
-package com.example.center.util
+package com.example.center.util.Bean
 
 /**
  * @Author : August
- * @Time : On 2021/7/31 18:47
+ * @Time : On 2021/8/2 13:53
  */
-data class GoodsListEntity(
+data class FindEntity(
     val code: Int,
     val `data`: List<Data>,
     val msg: String
@@ -14,6 +14,20 @@ data class GoodsListEntity(
         val CategoryName: String,
         val CommissionRate: String,
         val CommissionType: String,
+        val CouponAmount: Any,
+        val CouponEndTime: Any,
+        val CouponId: String,
+        val CouponInfo: String,
+        val CouponRemainCount: Int,
+        val CouponShareUrl: Any,
+        val CouponStartFee: Any,
+        val CouponStartTime: Any,
+        val CouponTotalCount: Int,
+        val Distance: Any,
+        val IncludeDxjh: String,
+        val IncludeMkt: String,
+        val InfoDxjh: String,
+        val ItemDescription: String,
         val ItemId: Long,
         val ItemUrl: String,
         val JddNum: Int,

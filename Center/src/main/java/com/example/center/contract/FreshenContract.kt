@@ -1,13 +1,11 @@
 package com.example.center.contract
 
-import com.example.center.model.protocol.rep.ClassfigEntity
 import com.example.center.model.protocol.resp.RespClassfigEntity
-import com.example.center.util.GoodsListEntity
+import com.example.center.util.Bean.GoodsListEntity
 import com.example.mvpcore.BasePresenter
 import com.example.mvpcore.BaseRepository
 import com.example.mvpcore.IModel
 import com.example.mvpcore.IVew
-import com.example.net.protocol.resp.BaseRespEntity
 import io.reactivex.Observable
 
 /**
